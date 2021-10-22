@@ -1,0 +1,17 @@
+.upcoming {
+   background-color: #ff9999;
+   padding: 8px ;
+   text-align: center;
+   font-size: 1rem; 
+};
+.MuiGridList-root {
+   flex-wrap: 'nowrap' !important;
+   width: 100%;
+   transform: translateZ(0);
+   overflow: 'hidden',
+};
+.moviePosters {
+height: 100%;
+width: auto;
+
+}

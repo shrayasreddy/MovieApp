@@ -103,7 +103,7 @@ class Header extends Component {
                 <FormHelperText error={this.state.firstName == '' ? true : false} id="component-error-text">required</FormHelperText>
               </FormControl>
               <FormControl required={this.state.lastName == '' ? true : false}  >
-                <InputLabel htmlFor="Password">Password</InputLabel>
+                <InputLabel htmlFor="Password">Last Name</InputLabel>
                 <Input id="Password" aria-describedby="my-helper-text" />
                 <FormHelperText error={this.state.lastName == '' ? true : false} id="password-text">required</FormHelperText>
               </FormControl>
