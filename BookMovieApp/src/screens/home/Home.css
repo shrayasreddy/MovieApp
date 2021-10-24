@@ -4,14 +4,33 @@
    text-align: center;
    font-size: 1rem; 
 };
-.MuiGridList-root {
-   flex-wrap: 'nowrap' !important;
+ .gridDisplay {
+     flex-wrap: 'nowrap' !important;  
    width: 100%;
-   transform: translateZ(0);
-   overflow: 'hidden',
-};
+    transform: translateZ(0); 
+   overflow: scroll;
+   display:flex;
+};  
 .moviePosters {
 height: 100%;
 width: auto;
+cursor: pointer;
+}
 
+.MuiGridList-roo{
+   flex-wrap: nowrap !important;
+};
+
+
+.flex-container{
+   display: flex !important;
+}
+.flex-container >div{
+   margin: 16px;
+}
+.part1{
+   width: 76%;
+}
+.part2{
+   width: 24%;
 }

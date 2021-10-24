@@ -107,20 +107,20 @@ class Header extends Component {
                 <Input id="Password" aria-describedby="my-helper-text" />
                 <FormHelperText error={this.state.lastName == '' ? true : false} id="password-text">required</FormHelperText>
               </FormControl>
-              <FormControl required={this.state.firstName == '' ? true : false} color="primary">
-                <InputLabel htmlFor="username">UserName</InputLabel>
+              <FormControl required={this.state.email == '' ? true : false} color="primary">
+                <InputLabel htmlFor="username">Email</InputLabel>
                 <Input id="username" aria-describedby="my-helper-text" />
-                <FormHelperText error={this.state.firstName == '' ? true : false} id="component-error-text">required</FormHelperText>
+                <FormHelperText error={this.state.email == '' ? true : false} id="component-error-text">required</FormHelperText>
               </FormControl>
-              <FormControl required={this.state.firstName == '' ? true : false}  >
+              <FormControl required={this.state.password == '' ? true : false}  >
                 <InputLabel htmlFor="Password">Password</InputLabel>
                 <Input id="Password" aria-describedby="my-helper-text" />
-                <FormHelperText error={this.state.firstName == '' ? true : false} id="component-error-text">required</FormHelperText>
+                <FormHelperText error={this.state.password == '' ? true : false} id="component-error-text">required</FormHelperText>
               </FormControl>
-              <FormControl required={this.state.firstName == '' ? true : false} color="primary">
-                <InputLabel htmlFor="username">UserName</InputLabel>
+              <FormControl required={this.state.contactNo == '' ? true : false} color="primary">
+                <InputLabel htmlFor="username">Contact No</InputLabel>
                 <Input id="username" aria-describedby="my-helper-text" />
-                <FormHelperText error={this.state.firstName == '' ? true : false} id="component-error-text">required</FormHelperText>
+                <FormHelperText error={this.state.contactNo == '' ? true : false} id="component-error-text">required</FormHelperText>
               </FormControl>
               <Button variant="contained">REGISTER</Button>
             </FormGroup>

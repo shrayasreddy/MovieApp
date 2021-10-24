@@ -3,3 +3,10 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+
+.MuiFormControl-root	{
+  max-width: 230px !important;
+  min-width: 230px !important;
+   margin: 16px !important; 
+}
