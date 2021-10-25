@@ -1,0 +1,25 @@
+.backButton {
+    margin-left: 24px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+    height: 24px;
+    cursor: pointer;
+}
+.video{
+     margin-top: 16px; 
+     margin-bottom: 16px;
+}
+.left{
+width: 20%;
+padding-right: 16px;
+padding-left: 16px;
+}
+.middle{
+width: 60%;
+}
+.right{
+width: 20%;
+}
+.Artist{
+    margin-top: 16px;
+}
