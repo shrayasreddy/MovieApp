@@ -34,15 +34,59 @@ class Home extends React.Component {
       selectdGeners:[],
       artists:[],
       selectedArtists:[],
+      movieName:'',
+      releaseDateStart:'',
+      releaseDateEnd: "",
+
+
     }
   }
+  movieNameChangeHandler = event => {
+    this.setState({ movieName: event.target.value });
+}
+
+genreSelectHandler = event => {
+  console.log(event.target.value)
+    this.setState({ selectdGeners: event.target.value });
+}
+
+artistSelectHandler = event => {
+    this.setState({ selectedArtists: event.target.value });
+}
+
+releaseDateStartHandler = event => {
+    this.setState({ releaseDateStart: event.target.value });
+}
+
+releaseDateEndHandler = event => {
+    this.setState({ releaseDateEnd: event.target.value });
+}
+applyFilter = () => {
+  let queryString = "?status=RELEASED";
+        if (this.state.movieName !== "") {
+            queryString += "&title=" + this.state.movieName;
+        }
+        if (this.state.selectdGeners.length > 0) {
+            queryString += "&genre=" + this.state.selectdGeners.toString();
+        }
+        if (this.state.selectedArtists.length > 0) {
+            queryString += "&artists=" + this.state.selectedArtists.toString();
+        }
+        if (this.state.releaseDateStart !== "") {
+            queryString += "&start_date=" + this.state.releaseDateStart;
+        }
+        if (this.state.releaseDateEnd !== "") {
+            queryString += "&end_date=" + this.state.releaseDateEnd;
+        }
+        axios.get(`http://localhost:8085/api/v1/movies${queryString}`).then(Response => this.setState({ releasedMovies: Response.data.movies }))
+}
   componentDidMount() {
     console.log("check");
     axios.get("http://localhost:8085/api/v1/movies?status=PUBLISHED").then(Response => this.setState({ upcomingMovies: Response.data.movies }))
     axios.get("http://localhost:8085/api/v1/movies?status=RELEASED").then(Response => this.setState({ releasedMovies: Response.data.movies }))
     axios.get("http://localhost:8085/api/v1/genres").then(Response => this.setState({ generes: Response.data.genres }))
     axios.get(" http://localhost:8085/api/v1/artists").then(Response => this.setState({ artists: Response.data.artists }))
-   
+    
   };
   movieDetails = (id) =>{
 this.props.history.push("/movie/"+id);
@@ -102,18 +146,18 @@ this.props.history.push("/movie/"+id);
 
                 <FormControl className="fcontrol">
                   <InputLabel htmlFor="movieName">Movie Label</InputLabel>
-                  <Input id="movieName"></Input>
+                  <Input id="movieName" onChange={this.movieNameChangeHandler}></Input>
                 </FormControl>
                 <FormControl className="fcontrol">
                   <InputLabel htmlFor="gener">Genres</InputLabel>
-                  <Select
+                  <Select onChange={this.genreSelectHandler}
                   value={this.state.selectdGeners}
                   multiple
                   renderValue= {selected => selected.join(',')}
                   input = {<Input id="gener"></Input>}
                 >
                     {this.state.generes.map(gen =>(<MenuItem key = {gen.id} value={gen.genre}>
-                   <Checkbox>
+                   <Checkbox checked={this.state.selectdGeners.indexOf(gen.genre)>-1}>
                      </Checkbox> 
                      <ListItemText primary={gen.genre} ></ListItemText>
                     </MenuItem>))}
@@ -121,27 +165,27 @@ this.props.history.push("/movie/"+id);
                 </FormControl>
                 <FormControl className="fcontrol">
                   <InputLabel htmlFor="artist">Artists</InputLabel>
-                  <Select
+                  <Select onChange={this.artistSelectHandler}
                   value={this.state.selectedArtists}
                   multiple
                   renderValue= {selected => selected.join(',')}
                   input = {<Input id="artist"></Input>}
                 >
                     {this.state.artists.map(art =>(<MenuItem key = {art.id} value={art.first_name+" " +art.last_name}>
-                   <Checkbox>
+                   <Checkbox checked={this.state.selectedArtists.indexOf(art.first_name+" " +art.last_name)>-1}>
                      </Checkbox> 
                      <ListItemText primary={art.first_name+" " +art.last_name} ></ListItemText>
                     </MenuItem>))}
                     </Select>
                 </FormControl>
                 <FormControl className="fcontrol">
-                 <TextField id="start" label="Release Date Start" type="date" InputLabelProps={{shrink:true}}></TextField>
+                 <TextField id="start" label="Release Date Start" type="date" InputLabelProps={{shrink:true}} onChange={this.releaseDateStartHandler}></TextField>
                 </FormControl>
                 <FormControl className="fcontrol">
-                 <TextField id="end" label="Release Date End" type="date" InputLabelProps={{shrink:true}}></TextField>
+                 <TextField id="end" label="Release Date End" type="date" InputLabelProps={{shrink:true}} onChange={this.releaseDateEndHandler}></TextField>
                 </FormControl>
                 <FormControl className="fcontrol">
-                  <Button variant='contained' color='primary'> APPLY</Button>
+                  <Button variant='contained' color='primary' onClick={this.applyFilter}> APPLY</Button>
                 </FormControl>
               </CardContent>
             </Card>
