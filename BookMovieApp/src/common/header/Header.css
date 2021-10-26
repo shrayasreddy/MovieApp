@@ -1,133 +1,40 @@
-.Logo{
-  background-color: #ff7f7f;
-  height: 35px;
-  text-align: left;
-  animation:spin 8s linear infinite;
-};
-
-@-moz-keyframes spin { 
-  0% { -moz-transform: rotate(0deg); }
-  100% { -moz-transform: rotate(360deg); }
-  }
-  @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-  }
-  @keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); transform:rotatey(360deg); }
-  }
-
-.LogButton{
-
-}
-.LoginTab{
-  display: flex;
-  flex-direction: row-reverse;
-
-}
-.BookShowBtn{
-margin-right: 8px !important;
-}
-/* .HeaderBar{
-  display: flex;
-  height:'35px';
- text-align: 'left';
- background: '#ff7f7f';
- position: 'fixed'; top: 9; left: 9; right: 0; bottom: 0; justifyContent: 'center'; alignItems: 'center';
- animation: 'spin 8s linear infinite';
-} */
-
-
-
-/* Style the header with a grey background and some padding */
-.HeaderBar {
-  height:'36px';
-  overflow: hidden;
-  background: #222;
+.app-header {
+  background-color: #222;
+  height: 36px;
   padding: 8px 32px 8px 16px;
-  
 }
 
-
-
-/* Float the link section to the right */
-.header-right {
+.login-button {
   float: right;
 }
 
-
-.modalBackground {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(200, 200, 200);
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.app-logo {
+  animation: app-logo-spin infinite 8s linear;
+  height: 35px;
+  background: #ff7f7f;
 }
 
-.modalContainer {
-  width: 500px;
-  height: 500px;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  display: flex;
-  flex-direction: column;
-  padding: 25px;
+.bookshow-button {
+  float: right;
+  margin-right: 8px;
 }
 
-.modalContainer .title {
-  display: inline-block;
-  text-align: center;
-  margin-top: 10px;
+@keyframes app-logo-spin {
+  from { transform: scaleX(-1); }
 }
 
-.titleCloseBtn {
-  display: flex;
-  justify-content: flex-end;
+.tabs {
+  margin-bottom: 20px;
 }
 
-.titleCloseBtn button {
-  background-color: transparent;
-  border: none;
-  font-size: 25px;
-  cursor: pointer;
+.dispNone {
+  display: none;
 }
 
-.modalContainer .body {
-  flex: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.7rem;
-  text-align: center;
+.dispBlock {
+  display: block;
 }
 
-.modalContainer .footer {
-  flex: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modalContainer .footer button {
-  width: 150px;
-  height: 45px;
-  margin: 10px;
-  border: none;
-  background-color: cornflowerblue;
-  color: white;
-  border-radius: 8px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-#cancelBtn {
-  background-color: crimson;
-}
-.ReactModal{
-  /* left: 50px;
-  right: 50%; */
+.red {
+  color: red;
 }

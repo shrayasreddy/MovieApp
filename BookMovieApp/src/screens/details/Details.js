@@ -8,6 +8,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import Header from '../../common/header/Header';
 
 
 export default class Details extends React.Component {
@@ -74,7 +75,9 @@ export default class Details extends React.Component {
     render() {
         var data = this.state.movieData
         return (
+            
             <div className="main">
+                 <Header showBookShowButton="true" id ={ this.props.match.params.id} />
                 <div className='backButton'>
                     <Typography>
                         <Link to="/">&#60;Back to Home</Link>

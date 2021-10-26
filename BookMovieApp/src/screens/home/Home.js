@@ -14,6 +14,7 @@ import CardContent from '@material-ui/core/CardContent';
 import { Button, Checkbox, FormControl, Input, InputLabel, ListItemText, MenuItem, Select, TextField } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Header from '../../common/header/Header';
 const theme = createTheme({
   palette: {
     primary: {
@@ -49,6 +50,7 @@ this.props.history.push("/movie/"+id);
   render() {
     return (
       <div>
+         <Header showBookShowButton="true" />
         <div className="upcoming">
           Upcoming Movies
         </div>
