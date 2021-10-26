@@ -11,6 +11,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import FormGroup from '@material-ui/core/FormGroup';
+import axios from 'axios';
 
 
 import Input from '@mui/material/Input';
@@ -37,6 +38,8 @@ class Header extends Component {
       firstName: '',
       lastName: '',
       email: '',
+      loginId:'',
+      loginPassword:'',
       password: '',
       contactNo: ''
 
@@ -46,7 +49,18 @@ class Header extends Component {
    
     this.setState({ modalopen: !this.state.modalopen })
   }
-
+  loginHandler = (e,event) => {
+    
+    if(e=="username"){
+      this.setState({loginId:event.target.value})
+    }else{
+      this.setState({loginPassword:event.target.value})
+    }
+  } 
+  login = () =>{
+    axios.post("http://localhost:8085/api/v1/auth/login",{"Headers":{"authorization":"Basic " + window.btoa(this.state.loginId + ":" +this.state.loginPassword),"Content-Type": "application/json"
+  }}).then(Response => console.log(Response))
+  }
   handleTabChange = (e, value) => {
    
     this.setState({ modalTab: value })
@@ -84,13 +98,13 @@ class Header extends Component {
             <FormGroup>
               <FormControl required={this.state.firstName == '' ? true : false} color="primary">
                 <InputLabel htmlFor="username">UserName</InputLabel>
-                <Input id="username" aria-describedby="my-helper-text" />
+                <Input id="username" aria-describedby="my-helper-text" onChange={(e)=>this.loginHandler("username",e)}/>
               </FormControl>
               <FormControl required={this.state.password == '' ? true : false}  >
                 <InputLabel htmlFor="Password">Password</InputLabel>
-                <Input id="Password" aria-describedby="my-helper-text" />
+                <Input id="Password" aria-describedby="my-helper-text" onChange={(e)=>this.loginHandler("password",e)} />
               </FormControl>
-              <Button variant="contained">LOGIN</Button>
+              <Button variant="contained" onClick={this.login}>LOGIN</Button>
             </FormGroup>
           </TabPanel>
 
