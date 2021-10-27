@@ -33,4 +33,9 @@ cursor: pointer;
 }
 .part2{
    width: 24%;
+   
+}
+.fcontrol{
+   min-width: 240px;
+   max-width: 240px;
 }

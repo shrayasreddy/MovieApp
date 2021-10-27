@@ -61,7 +61,7 @@ class Header extends Component {
             registrationSuccess: false,
             loggedIn: sessionStorage.getItem("access-token") == null ? false : true
         }
-        console.log( this.props)
+        // console.log( this.props)
     }
    
     openModalHandler = () => {
@@ -195,7 +195,7 @@ class Header extends Component {
                             </Button>
                         </div>
                     }
-                    {this.props.showBookShowButton === "true" && !this.state.loggedIn && (window.location.href.indexOf("movie/") > -1)
+                    {/* {this.props.showBookShowButton === "true" && !this.state.loggedIn && (window.location.href.indexOf("movie/") > -1)
 
                         ? <div className="bookshow-button">
                             <Button variant="contained" color="primary" onClick={this.openModalHandler}>
@@ -203,7 +203,7 @@ class Header extends Component {
                             </Button>
                         </div>
                         : ""
-                    }
+                    } */}
 
                     {this.props.showBookShowButton === "true" && this.state.loggedIn && (window.location.href.indexOf("movie/") > -1)
 

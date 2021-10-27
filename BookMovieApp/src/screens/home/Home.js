@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import { withStyles } from '@material-ui/core/styles';
+//import { withStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
@@ -46,7 +46,7 @@ class Home extends React.Component {
 }
 
 genreSelectHandler = event => {
-  console.log(event.target.value)
+  // console.log(event.target.value)
     this.setState({ selectdGeners: event.target.value });
 }
 
@@ -81,7 +81,7 @@ applyFilter = () => {
         axios.get(`http://localhost:8085/api/v1/movies${queryString}`).then(Response => this.setState({ releasedMovies: Response.data.movies }))
 }
   componentDidMount() {
-    console.log("check");
+    // console.log("check");
     axios.get("http://localhost:8085/api/v1/movies?status=PUBLISHED").then(Response => this.setState({ upcomingMovies: Response.data.movies }))
     axios.get("http://localhost:8085/api/v1/movies?status=RELEASED").then(Response => this.setState({ releasedMovies: Response.data.movies }))
     axios.get("http://localhost:8085/api/v1/genres").then(Response => this.setState({ generes: Response.data.genres }))
@@ -99,7 +99,7 @@ this.props.history.push("/movie/"+id);
           Upcoming Movies
         </div>
 
-        <GridList cols={6} style={{ flexWrap: 'nowrap' }} className="gridDisplay">
+        <GridList cols={6} cellHeight={250} style={{ flexWrap: 'nowrap' }} className="gridDisplay">
           {this.state.upcomingMovies.map(tile => (
             <GridListTile key={tile.img}>
               <img src={tile.poster_url} alt={tile.title} className="moviePosters" />

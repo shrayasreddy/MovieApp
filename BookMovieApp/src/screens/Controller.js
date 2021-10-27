@@ -4,7 +4,7 @@ import Details from "../screens/details/Details";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import BookShow from "../screens/bookshow/BookShow";
 import Confirmation from "../screens/confirmation/Confirmation";
-import Header  from "../common/header/Header";
+//import Header  from "../common/header/Header";
 
 const Controller = () => {
   const baseUrl = "/api/v1/";

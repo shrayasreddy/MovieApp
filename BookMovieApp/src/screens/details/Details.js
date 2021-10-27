@@ -9,6 +9,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import Header from '../../common/header/Header';
+//import { yellow } from '@material-ui/core/colors';
 
 
 export default class Details extends React.Component {
@@ -64,7 +65,8 @@ export default class Details extends React.Component {
            
             if(tempStar.id <= id){
 
-                tempStar.color = "red";
+                tempStar.color = "red";  
+                // yellow is not working
             }
             temp.push(tempStar)
             
@@ -85,7 +87,7 @@ export default class Details extends React.Component {
                 </div>
                 <div className="parent" style={{display:'flex'}}>
                     <div className="left">
-                        <img src={data.poster_url}></img>
+                        <img src={data.poster_url} alt=""></img>
                     </div>
                     <div className="middle">
                         <div>
